@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-	stage(package) {
+	stage('package') {
 	steps {
 		git 'https://github.com/vijaymargam/mvn-webapp.git'
 		sh 'mvn package'
@@ -26,7 +26,7 @@ pipeline {
 		}
 	}
 
-	stage(tomcat deployment) {
+	stage('tomcat deployment') {
 	steps{
 		git 'https://github.com/vijaymargam/mvn-webapp.git'
 		sh 'mvn tomcat7:deploy'
