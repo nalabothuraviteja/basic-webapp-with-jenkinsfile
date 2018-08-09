@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('validate') {
             steps {
-		git 'https://github.com/vijaymargam/mvn-webapp.git'
+		git 'https://github.com/vijaymargam/basic-webapp-with-jenkinsfile.git'
                 sh 'mvn validate'
 		echo 'Building..'
             }
@@ -12,7 +12,7 @@ pipeline {
 
         stage('Test') {
             steps {
-		git 'https://github.com/vijaymargam/mvn-webapp.git'
+		git 'https://github.com/vijaymargam/basic-webapp-with-jenkinsfile.git'
 		sh 'mvn test'
                 echo 'Testing..'
             }
@@ -20,7 +20,7 @@ pipeline {
 
 	stage('package') {
 	steps {
-		git 'https://github.com/vijaymargam/mvn-webapp.git'
+		git 'https://github.com/vijaymargam/basic-webapp-with-jenkinsfile.git'
 		sh 'mvn package'
 		echo 'building application..'
 		}
@@ -28,7 +28,7 @@ pipeline {
 
 	stage('tomcat deployment') {
 	steps{
-		git 'https://github.com/vijaymargam/mvn-webapp.git'
+		git 'https://github.com/vijaymargam/basic-webapp-with-jenkinsfile.git'
 		sh 'mvn tomcat7:deploy'
 		echo 'deploying application to tomcat application server'
 			}
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-		git 'https://github.com/vijaymargam/mvn-webapp.git'
+		git 'https://github.com/vijaymargam/basic-webapp-with-jenkinsfile.git'
 		sh 'mvn deploy'
                 echo 'Deploying to nexus repositories..'
             }
